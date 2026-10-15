@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useApp } from "../components/Context";
 import { download, csv, validate, initial } from "../storage/db";
@@ -22,12 +23,24 @@ export default function Settings() {
           <h1>{t("Настройки и данные", "Settings and data")}</h1>
           <p>
             {t(
-              "Вы контролируете свои данные. Они не отправляются на сервер.",
-              "You control your data. Nothing is sent to a server.",
+              "Вы контролируете свои данные. Облако подключается только по вашему согласию.",
+              "You control your data. Cloud uploads require your consent.",
             )}
           </p>
         </div>
       </div>
+      <section className="card">
+        <h2>{t("Google и облачное хранение", "Google and cloud storage")}</h2>
+        <p>
+          {t(
+            "Войдите в аккаунт и переносите результаты между устройствами через облачную копию.",
+            "Sign in and transfer results between devices using a cloud backup.",
+          )}
+        </p>
+        <Link to="/account" className="button primary">
+          {t("Открыть аккаунт", "Open account")}
+        </Link>
+      </section>
       <section className="card">
         <h2>{t("Локальный профиль", "Local profile")}</h2>
         <p>

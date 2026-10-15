@@ -21,8 +21,8 @@ export default function Science({ privacy = false }: { privacy?: boolean }) {
             [
               t("Хранение на устройстве", "On-device storage"),
               t(
-                "Данные хранятся в IndexedDB вашего браузера. Нет регистрации, трекеров или обязательного облачного сервера. Очистка браузера может удалить данные: регулярно экспортируйте резервную копию.",
-                "Data is stored in your browser’s IndexedDB. No registration, trackers or mandatory cloud server. Clearing browser storage can erase data; export backups regularly.",
+                "Данные хранятся в IndexedDB вашего браузера. Регистрация необязательна. Аккаунты обслуживаются Supabase Auth; Google используется только для входа. Результаты отправляются в Supabase лишь при явном сохранении облачной копии. Очистка браузера может удалить данные: регулярно экспортируйте резервную копию.",
+                "Data is stored in your browser’s IndexedDB. Registration is optional. Supabase Auth manages accounts; Google is used only for sign-in. Results are uploaded to Supabase only when you explicitly save a cloud backup. Clearing browser storage can erase data; export backups regularly.",
               ),
             ],
             [
@@ -35,8 +35,8 @@ export default function Science({ privacy = false }: { privacy?: boolean }) {
             [
               t("Экспорт и удаление", "Export and deletion"),
               t(
-                "JSON содержит полную базу для восстановления. CSV содержит обезличенные коды и сырые попытки. Вы сами решаете, кому передавать файлы. Данные можно удалить в настройках.",
-                "JSON contains the complete database for restoration. CSV contains pseudonymous codes and raw trials. You decide whom to share files with. Delete data in settings.",
+                "JSON содержит полную базу для восстановления. CSV содержит обезличенные коды и сырые попытки. Вы сами решаете, кому передавать файлы. Локальные данные можно удалить в настройках; облачная копия удаляется отдельно на странице аккаунта. Выход из аккаунта не удаляет локальные данные или облачную копию. Для удаления самого аккаунта обратитесь к владельцу проекта.",
+                "JSON contains the complete database for restoration. CSV contains pseudonymous codes and raw trials. You decide whom to share files with. Delete local data in settings and cloud backups separately on the account page. Signing out erases neither local data nor cloud backups. Contact the project owner to delete the account itself.",
               ),
             ],
           ]

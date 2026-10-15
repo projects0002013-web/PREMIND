@@ -1450,3 +1450,51 @@ main,
     margin: 0;
   }
 }
+.account-card > .icon-box,
+.account-card + .card > .icon-box {
+  margin-bottom: 20px;
+}
+.google-button {
+  width: 100%;
+  font-size: 13px;
+  margin: 16px 0 0;
+  padding: 13px;
+  background: var(--surface);
+}
+.google-mark {
+  font-size: 19px;
+  font-weight: 800;
+  color: #4285f4;
+}
+.auth-divider {
+  text-align: center;
+  color: var(--muted);
+  font-size: 10px;
+  margin: 20px 0;
+}
+.auth-tabs {
+  margin: 0 0 20px;
+}
+.account-card form {
+  margin-top: 20px;
+}
+.account-card details {
+  margin-top: 14px;
+}
+.account-card summary {
+  cursor: pointer;
+  color: var(--accent);
+}
+.account-card ol {
+  padding-left: 19px;
+  overflow-wrap: anywhere;
+}
+.profile {
+  max-width: 180px;
+}
+.profile div {
+  overflow: hidden;
+}
+.account-card h2 {
+  font-size: 23px;
+}

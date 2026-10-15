@@ -14,6 +14,12 @@ try {
   await page.goto(base);
   await page.getByText("Открыть PREMIND").click();
   await page.getByRole("button", { name: "RU", exact: true }).click();
+  await page.getByRole("link", {name:"Account and sign-in"}).click();
+  await page.getByRole("heading", {name:"Account and cloud",exact:true}).waitFor();
+  const setupNotice=page.getByText(/Cloud is not connected yet/);
+  if(await setupNotice.isVisible())assert.equal(await page.locator('form').count(),0);
+  await page.getByRole("link",{name:"Overview",exact:true}).click();
+  console.log("PASS account navigation and optional cloud configuration");
   await page.clock.install();
   async function run(kind, trials) {
     await page.getByRole("button", { name: "Start", exact: true }).click();

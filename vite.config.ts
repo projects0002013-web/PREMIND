@@ -6,7 +6,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: { charts: ["recharts"], motion: ["framer-motion"] },
+        manualChunks: {
+          charts: ["recharts"],
+          motion: ["framer-motion"],
+          cloud: ["@supabase/supabase-js"],
+        },
       },
     },
   },

@@ -24,6 +24,8 @@ import { motion } from "framer-motion";
 import { AppContext } from "./components/Context";
 import { load, save } from "./storage/db";
 import type { Data } from "./types";
+import { CloudProvider, useCloud } from "./cloud/CloudContext";
+import Account from "./pages/Account";
 import Dashboard from "./pages/Dashboard";
 import Testing from "./pages/Testing";
 import Research from "./pages/Research";
@@ -31,6 +33,7 @@ import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import Science from "./pages/Science";
 function Shell() {
+  const { session: cloudSession } = useCloud();
   const [data, setData] = useState<Data | null>(null);
   const current = useRef<Data | null>(null);
   const queue = useRef(Promise.resolve());
@@ -241,10 +244,16 @@ function Shell() {
               >
                 <SettingsIcon size={18} />
               </Link>
-              <Link to="/settings" className="profile">
+              <Link
+                to="/account"
+                className="profile"
+                aria-label={t("Аккаунт и вход", "Account and sign-in")}
+              >
                 <span>P</span>
                 <div>
-                  {t("Участник", "Participant")}
+                  {cloudSession
+                    ? t("Аккаунт", "Account")
+                    : t("Войти", "Sign in")}
                   <small>#{data.participant.id.slice(0, 6)}</small>
                 </div>
               </Link>
@@ -274,6 +283,7 @@ function Shell() {
               <Route path="/analytics" element={<Analytics />} />
               <Route path="/research" element={<Research />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/account" element={<Account />} />
               <Route path="/science" element={<Science />} />
               <Route path="/privacy" element={<Science privacy />} />
               <Route
@@ -291,8 +301,8 @@ function Shell() {
               <span>
                 <ShieldCheck size={13} />
                 {t(
-                  "Данные хранятся только на устройстве",
-                  "Your data stays on your device",
+                  "Локально по умолчанию · Облако по согласию",
+                  "Local by default · Cloud with consent",
                 )}
               </span>
             </footer>
@@ -356,8 +366,10 @@ function Shell() {
 }
 export default function App() {
   return (
-    <HashRouter>
-      <Shell />
-    </HashRouter>
+    <CloudProvider>
+      <HashRouter>
+        <Shell />
+      </HashRouter>
+    </CloudProvider>
   );
 }
