@@ -252,6 +252,14 @@ export default function Dashboard() {
           </Link>
         ))}
       </div>
+      <section className="card search-explainer">
+        <span className="eyebrow">PREMIND · {t("О ПРОЕКТЕ", "ABOUT THE PROJECT")}</span>
+        <h2>{t("Проверка усталости и внимания онлайн", "Explore fatigue and attention online")}</h2>
+        <p>{t("PREMIND — бесплатное приложение с тестами скорости реакции, внимания и рабочей памяти. Проходите короткие задания и сравнивайте результаты с вашим личным базовым уровнем. Регистрация для локальных тестов не нужна.", "PREMIND is a free application with reaction time, attention and working memory tests. Complete short tasks and compare results with your personal baseline. Local testing requires no account.")}</p>
+        <h3>{t("Как исследовать снижение концентрации?", "How can you explore declining concentration?")}</h3>
+        <p>{t("В исследовательской сессии вы оцениваете усталость и концентрацию, выполняете несколько серий тестов и делаете перерывы. Система сопоставляет измерения с самооценкой. Один тест не определяет усталость и не предсказывает её достоверно.", "In a research session you rate fatigue and concentration, complete several test series and take breaks. The application compares measurements with self-ratings. A single test cannot determine or reliably predict fatigue.")}</p>
+        <Link to="/science" className="text-link">{t("Научная методика и ограничения", "Methodology and limitations")}<ArrowRight size={16}/></Link>
+      </section>
     </>
   );
 }
